@@ -14,4 +14,4 @@ go get github.com/bugyellow/webpwn3r
 
 * Chinese hackers from the mysterious east: Libaye, my favourite people to hack with.</br> It was he who gave me endless  inspiration and creation, and he taught me golang.
 
-* @Zigoo0 I stole this scanner from Zigoo0 and changed it to golang ,He wrote [webpwn3r](https://github.com/zigoo0/webpwn3r/) 
+*I stole this scanner from @Zigoo0 and changed it to golang ,He wrote [webpwn3r](https://github.com/zigoo0/webpwn3r/) 
