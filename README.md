@@ -4,7 +4,8 @@ WebPwn3r - Web Applications Security Scanner.
 
 Usage example:
 ```
-~/go/bin/webpwn3r
+~/go/bin/webpwn3r URL
+cat URL.txt | ~/go/bin/webpwn3 
 ```
 install
 ```
