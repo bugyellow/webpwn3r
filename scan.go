@@ -74,7 +74,7 @@ func rce_func(url string){
 	main_function(url, payloads, check)
 }
 
-func xss_func(url string) error{
+func xss_func(url string) {
 	fmt.Println(" [!] Now Scanning for XSS ")
 	fmt.Println(" [!] Please wait .... ")
 	payloads := []string{
@@ -87,7 +87,6 @@ func xss_func(url string) error{
 	}
 	check, _ := regexp.Compile("bugyellow<svg|x>x")
 	main_function(url, payloads, check)
-	return nil
 }
 
 func error_based_sqli_func(url string){
